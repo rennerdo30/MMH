@@ -14,6 +14,8 @@ namespace Application.games
         public ModdedGame(string installDir)
         {
             this.installDir = installDir;
+
+            findMissingMods();
         }
 
         public abstract List<GameMod> findMissingMods();

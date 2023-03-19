@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Application.games;
+using Application.games.HS2;
+using Application.ui;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,54 @@ namespace Application
         public MainWindow()
         {
             InitializeComponent();
+
+            missingModsGrid.Columns.Clear();
+
+            {
+                DataGridTextColumn textColumn = new DataGridTextColumn();
+                textColumn.Header = "Name";
+                textColumn.Binding = new Binding("Name");
+                missingModsGrid.Columns.Add(textColumn);
+            }
+            {
+                DataGridTextColumn textColumn = new DataGridTextColumn();
+                textColumn.Header = "URL";
+                textColumn.Binding = new Binding("URL");
+                missingModsGrid.Columns.Add(textColumn);
+            }
+            {
+                DataGridTextColumn textColumn = new DataGridTextColumn();
+                textColumn.Header = "raw";
+                textColumn.Binding = new Binding("raw");
+                missingModsGrid.Columns.Add(textColumn);
+            }
+
+
+            ModdedGame moddedGame = new HS2("../../../../test_data/HS2");
+
+            moddedGame.findMissingMods().ForEach(mod => missingModsGrid.Items.Add(mod));
+        }
+
+        private void missingModsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void addGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            var customInputDialog = new CustomInputDialog();
+            if (customInputDialog.ShowDialog() == true)
+            {
+                var inputText = customInputDialog.InputText;
+                // Do something with the input text
+
+                missingModsGrid.Items.Add(new GameMod(inputText, "", ""));
+            }
+        }
+
+        private void removeGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            gameInstanceComboBox.Items.Remove(gameInstanceComboBox.SelectedItem);
         }
     }
 }

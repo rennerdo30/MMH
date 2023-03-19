@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <DataGrid x:Name="missingModsGrid" Margin="0,37,0,0" SelectionChanged="missingModsGrid_SelectionChanged"/>
+        <ComboBox x:Name="gameInstanceComboBox" Margin="10,10,161,0" VerticalAlignment="Top"/>
+        <Button x:Name="addGameButton" Content="Add Game" Margin="644,10,96,0" VerticalAlignment="Top" Click="addGameButton_Click"/>
+        <Button x:Name="removeGameButton" Content="Remove Game" Margin="709,10,10,0" VerticalAlignment="Top" Click="removeGameButton_Click"/>
 
     </Grid>
 </Window>
