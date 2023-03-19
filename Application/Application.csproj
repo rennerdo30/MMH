@@ -8,8 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="MOD_DB\KKS_ModInfo.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="MOD_DB\KKS_ModInfo.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="games\KK\" />
-    <Folder Include="games\KKS\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>

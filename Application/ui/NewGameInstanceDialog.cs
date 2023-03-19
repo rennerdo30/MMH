@@ -10,21 +10,29 @@ using System.Windows;
 
 namespace Application.ui
 {
-    internal class CustomInputDialog : Window
+    internal class NewGameInstanceDialog : Window
     {
-        public string InputText { get; set; }
+        public string GameType { get; set; }
+        public string GamePath { get; set; }
 
-        public CustomInputDialog()
+        public NewGameInstanceDialog()
         {
-            Title = "Custom Input Dialog";
+            Title = "Add New Game Instance";
             Width = 250;
             Height = 150;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             var stackPanel = new StackPanel();
 
-            var textBox = new TextBox();
-            stackPanel.Children.Add(textBox);
+            var gameTypeCB = new ComboBox();
+            gameTypeCB.Items.Add("KKS");
+            gameTypeCB.Items.Add("HS2");
+            stackPanel.Children.Add(gameTypeCB);
+
+
+
+            var gamePath = new TextBox();
+            stackPanel.Children.Add(gamePath);
 
             var buttonPanel = new StackPanel
             {
@@ -40,7 +48,8 @@ namespace Application.ui
             };
             okButton.Click += (sender, args) =>
             {
-                InputText = textBox.Text;
+                GameType = (string)gameTypeCB.SelectedValue;
+                GamePath = gamePath.Text;
                 DialogResult = true;
             };
             buttonPanel.Children.Add(okButton);

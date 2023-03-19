@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 
-namespace Application.games.HS2
+namespace Application.games.KKS
 {
-    internal class HS2 : ModdedGame
+    internal class KKS : ModdedGame
     {
 
         private static readonly string MISSING_MOD_LOG_MSG_TYPE_1 = "WARNING! Missing mod detected!"; // WARNING! Missing mod detected! [[Hanmen] NextGenTex]  
@@ -17,7 +17,7 @@ namespace Application.games.HS2
         private static readonly string MISSING_MOD_LOG_MSG_TYPE_3 = "Missing mod detected"; // Missing mod detected [Helena bride Skirt] but matching ID found
         private static readonly string MISSING_MOD_LOG_MSG_TYPE_3_2 = "but matching ID found";
 
-        public HS2(string installDir) : base(installDir)
+        public KKS(string installDir) : base(installDir)
         {
             this.infoPrefix = "KKS";
         }
