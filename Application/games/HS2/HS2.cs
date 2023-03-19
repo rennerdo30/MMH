@@ -19,17 +19,14 @@ namespace Application.games.HS2
 
         public HS2(string installDir) : base(installDir)
         {
-            this.infoPrefix = "KKS";
+            this.infoPrefix = "HS2";
         }
 
         /*
-
         [Warning, Message:Sideloader] Missing zipmod! Some items are missing! - Garnetfanatico : Talim
         [Warning:Sideloader] [UAR] WARNING! Missing mod detected! [Talim]  https://https://www.patreon.com/m/garnetfanatico
         [Warning, Message:Sideloader] Missing zipmod! Some items are missing! - Garnetfanatico : Talim Costume SCVI
         [Warning:Sideloader] [UAR] WARNING! Missing mod detected! [Talim Costume SCVI]  https://www.patreon.com/m/garnetfanatico
-
-
          */
 
 
@@ -37,7 +34,7 @@ namespace Application.games.HS2
         {
             HashSet<GameMod> mods = new HashSet<GameMod>();
 
-            using (StreamReader reader = new StreamReader($"{this.InstallDir}/output_log.txt"))
+            using (StreamReader reader = new StreamReader(new FileStream($"{this.InstallDir}/output_log.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)

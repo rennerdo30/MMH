@@ -37,7 +37,7 @@ namespace Application.games.KKS
         {
             HashSet<GameMod> mods = new HashSet<GameMod>();
 
-            using (StreamReader reader = new StreamReader($"{this.InstallDir}/output_log.txt"))
+            using (StreamReader reader = new StreamReader(new FileStream($"{this.InstallDir}/output_log.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)

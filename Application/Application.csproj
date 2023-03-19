@@ -8,10 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="MOD_DB\HS2_ModInfo.csv" />
     <None Remove="MOD_DB\KKS_ModInfo.csv" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="MOD_DB\HS2_ModInfo.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="MOD_DB\KKS_ModInfo.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
